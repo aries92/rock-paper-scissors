@@ -1,0 +1,63 @@
+.game {
+  text-align: center;
+
+  .body {
+    display: flex;
+    justify-content: center;
+    .hand {
+      &.user {
+        .icon {
+          transform: rotate(90deg);
+        }
+      }
+      &.pc {
+        .icon {
+          transform: rotate(-90deg);
+          img {
+            transform: scaleX(-1);
+          }
+        }
+      }
+    }
+    &.active {
+      .hand {
+        animation-iteration-count: 3;
+
+        &.user {
+          animation: gameUserActive 500ms 3;
+          transform-origin: left center;
+        }
+        &.pc {
+          animation: gamePcActive 500ms 3;
+          transform-origin: right center;
+        }
+      }
+    }
+
+  }
+}
+
+@keyframes gameUserActive {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-35deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes gamePcActive {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(35deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
